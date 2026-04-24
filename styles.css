@@ -1,0 +1,886 @@
+:root {
+  --bg: #f4faf7;
+  --card: #ffffff;
+  --card-soft: #f9fdfb;
+  --ink: #172521;
+  --muted: #677972;
+  --line: #d8e9e2;
+  --line-strong: #afdccf;
+  --teal: #128a78;
+  --teal-dark: #0b6659;
+  --mint: #ddf5ea;
+  --blue: #315e7c;
+  --blue-soft: #e5f0f6;
+  --coral: #d94d43;
+  --coral-soft: #ffe2df;
+  --amber: #d89424;
+  --amber-soft: #fff0d3;
+  --radius: 12px;
+  --shadow: 0 18px 44px rgba(22, 66, 54, 0.1);
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--line-strong);
+  background: var(--card-soft);
+}
+
+.figma-app {
+  position: relative;
+  width: min(100%, 1440px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 36px 48px;
+}
+
+.top-app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 92px;
+  margin: 0 -36px;
+  padding: 0 36px;
+  background: var(--card);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-tile {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--teal);
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.brand-lockup p,
+.flow-heading p,
+.dock-head span,
+.patient-fields span,
+.context-metric span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.brand-lockup h1,
+.flow-heading h2,
+.report-wrap h3,
+.question-head h3 {
+  margin: 0;
+}
+
+.brand-lockup h1 {
+  margin-top: 2px;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.top-badges {
+  display: flex;
+  gap: 16px;
+}
+
+.mobile-metrics {
+  display: none;
+}
+
+.badge {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0 14px;
+}
+
+.badge-blue {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.badge-red,
+.risk-high .dock-head strong {
+  background: var(--coral-soft);
+  color: #9c2c26;
+}
+
+.risk-medium .dock-head strong {
+  background: var(--amber-soft);
+  color: #93610f;
+}
+
+.risk-low .dock-head strong {
+  background: var(--mint);
+  color: var(--teal-dark);
+}
+
+.patient-strip {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 170px 190px 190px;
+  gap: 24px;
+  align-items: center;
+  min-height: 96px;
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 18px 24px;
+}
+
+.patient-fields {
+  display: grid;
+  gap: 8px;
+}
+
+.patient-inputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.patient-inputs input {
+  min-height: 34px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0;
+}
+
+#personName {
+  width: 135px;
+}
+
+#assessmentDate {
+  width: 156px;
+}
+
+.context-metric {
+  display: grid;
+  min-height: 50px;
+  align-content: center;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.context-metric strong {
+  margin-top: 3px;
+  font-size: 18px;
+}
+
+.metric-mint {
+  background: var(--mint);
+  color: var(--teal-dark);
+}
+
+.metric-amber {
+  background: var(--amber-soft);
+  color: #93610f;
+}
+
+.metric-red {
+  background: var(--coral-soft);
+  color: #9c2c26;
+}
+
+.flow-heading {
+  width: 560px;
+  margin-top: 34px;
+}
+
+.flow-heading h2 {
+  margin-top: 9px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.flow-heading span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.assessment-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 26px;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.question-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(26, 70, 58, 0.04);
+}
+
+.question-card[data-section="symptoms"] {
+  align-self: start;
+}
+
+.question-head {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.question-index {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--teal-dark);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.question-head h3 {
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.question-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.symptom-count {
+  display: none;
+  min-width: 76px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--teal-dark);
+  font-size: 12px;
+  padding: 7px 10px;
+  text-align: center;
+}
+
+.question-card[data-section="symptoms"] .symptom-count {
+  display: block;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.question-card[data-section="symptoms"] .options {
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card-soft);
+  padding: 10px 16px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.question-card[data-section="symptoms"] .option {
+  min-height: 42px;
+  padding: 8px 14px;
+}
+
+.option:has(input:checked) {
+  border-color: var(--line-strong);
+  background: #eef9f5;
+}
+
+.option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--coral);
+}
+
+.question-card[data-section="symptoms"] .option input {
+  width: 16px;
+  height: 16px;
+}
+
+.option span {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.question-card[data-section="symptoms"] .option span {
+  font-size: 13px;
+}
+
+.score-pill {
+  display: none;
+  min-width: 42px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--teal-dark);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 9px;
+  text-align: center;
+}
+
+.question-card[data-section="symptoms"] .score-pill {
+  min-width: 34px;
+  padding: 5px 7px;
+  font-size: 10px;
+}
+
+.other-input {
+  grid-column: 2 / 4;
+  display: none;
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 0 10px;
+}
+
+.option:has(input:checked) .other-input {
+  display: block;
+}
+
+.result-dock {
+  position: sticky;
+  top: 24px;
+  z-index: 2;
+  width: 340px;
+}
+
+.pre-submit-card,
+.live-result-card,
+.report-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.pre-submit-card {
+  min-height: 392px;
+  padding: 28px 24px;
+}
+
+.pre-submit-card span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.pre-submit-card h3 {
+  margin: 70px 0 14px;
+  color: var(--ink);
+  font-size: 26px;
+  line-height: 1.18;
+}
+
+.pre-submit-card p {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.pre-submit-card small {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.pre-submit-card .primary-action {
+  margin-top: 0;
+}
+
+.pre-submit-card .primary-action:disabled {
+  cursor: not-allowed;
+  background: #c9d7d1;
+  color: #f8fbfa;
+}
+
+.live-result-card {
+  min-height: 392px;
+  padding: 24px;
+}
+
+.live-result-card,
+.report-wrap,
+.result-action,
+.secondary-actions,
+.history-text {
+  display: none;
+}
+
+.show-result .pre-submit-card {
+  display: none;
+}
+
+.show-result .live-result-card,
+.show-result .report-wrap,
+.show-result .result-action,
+.show-result .secondary-actions,
+.show-result .history-text {
+  display: grid;
+}
+
+.show-result .result-action {
+  display: block;
+}
+
+.dock-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dock-head strong {
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 7px 13px;
+}
+
+.score-ring {
+  display: grid;
+  width: 162px;
+  height: 162px;
+  place-items: center;
+  margin: 36px auto 26px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, white 0 58%, transparent 59%),
+    conic-gradient(var(--ring-color, var(--teal)) calc(var(--progress) * 1%), #e6f1ed 0);
+}
+
+.score-ring span {
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score-ring small {
+  margin-top: -58px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.risk-low {
+  --ring-color: var(--teal);
+}
+
+.risk-medium {
+  --ring-color: var(--amber);
+}
+
+.risk-high {
+  --ring-color: var(--coral);
+}
+
+#riskAdvice,
+#reportText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.risk-scale {
+  display: grid;
+  grid-template-columns: 76px 1fr 76px;
+  overflow: hidden;
+  margin-top: 22px;
+  border-radius: 999px;
+  color: white;
+  font-size: 0;
+}
+
+.risk-scale span {
+  height: 28px;
+}
+
+.scale-low {
+  background: var(--teal);
+}
+
+.scale-mid {
+  background: var(--amber);
+}
+
+.scale-high {
+  background: var(--coral);
+}
+
+.score-breakdown {
+  display: grid;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.breakdown-row strong {
+  color: var(--ink);
+}
+
+.report-wrap {
+  margin-top: 34px;
+}
+
+.report-wrap h3 {
+  margin-bottom: 14px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.report-card {
+  min-height: 140px;
+  padding: 24px;
+}
+
+.primary-action {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 24px;
+  border: 0;
+  background: var(--coral);
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.secondary-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.secondary-actions button {
+  min-height: 38px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.history-text {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 1220px) {
+  .figma-app {
+    padding: 0 24px 40px;
+  }
+
+  .top-app-bar {
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+
+  .patient-strip {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .patient-fields {
+    grid-column: 1 / -1;
+  }
+
+  .assessment-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-dock {
+    position: static;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .report-wrap {
+    margin-top: 0;
+  }
+
+  .primary-action,
+  .secondary-actions,
+  .history-text {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 860px) {
+  .figma-app {
+    width: 100%;
+    padding: 0 14px 32px;
+  }
+
+  .top-app-bar {
+    display: block;
+    min-height: 170px;
+    margin: 0 -14px;
+    padding: 20px 20px 0;
+  }
+
+  .brand-lockup {
+    gap: 12px;
+  }
+
+  .logo-tile {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+  }
+
+  .brand-lockup h1 {
+    font-size: 22px;
+  }
+
+  .top-badges {
+    display: none;
+  }
+
+  .mobile-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .mobile-metrics article {
+    display: grid;
+    min-height: 56px;
+    align-content: center;
+    border-radius: 12px;
+    padding: 0 16px;
+  }
+
+  .mobile-metrics span {
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .mobile-metrics strong {
+    margin-top: 3px;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .mobile-step-card {
+    background: var(--coral-soft);
+    color: #9c2c26;
+  }
+
+  .mobile-ready-card {
+    background: var(--mint);
+    color: var(--teal-dark);
+  }
+
+  .patient-strip {
+    display: none;
+  }
+
+  .flow-heading {
+    display: none;
+  }
+
+  .assessment-stage {
+    display: block;
+    margin-top: 26px;
+  }
+
+  .question-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .question-card {
+    padding: 22px 14px;
+  }
+
+  .question-head {
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+  }
+
+  .question-head h3 {
+    font-size: 17px;
+  }
+
+  .question-card[data-section="symptoms"] .options {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .question-card[data-section="symptoms"] .option {
+    border-radius: 0;
+  }
+
+  .question-card[data-section="symptoms"] .option:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .question-card[data-section="symptoms"] .option:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+
+  .option {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .option span {
+    font-size: 13px;
+  }
+
+  .result-dock {
+    position: static;
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+  }
+
+  .live-result-card {
+    min-height: 330px;
+  }
+
+  .pre-submit-card {
+    min-height: 300px;
+  }
+
+  .pre-submit-card h3 {
+    margin-top: 42px;
+    font-size: 24px;
+  }
+
+  .dock-head span {
+    display: none;
+  }
+
+  .dock-head {
+    justify-content: flex-end;
+  }
+
+  .score-ring {
+    width: 160px;
+    height: 160px;
+    margin-top: 26px;
+  }
+
+  .report-wrap {
+    display: none;
+  }
+
+  .primary-action {
+    margin-top: 16px;
+  }
+
+  .secondary-actions,
+  .history-text,
+  .score-breakdown,
+  .risk-scale {
+    display: none;
+  }
+}
+
+@media print {
+  .top-app-bar,
+  .secondary-actions,
+  .history-text {
+    display: none;
+  }
+
+  .figma-app {
+    width: auto;
+    padding: 0;
+  }
+
+  .result-dock {
+    position: static;
+    width: auto;
+    margin-top: 20px;
+  }
+}

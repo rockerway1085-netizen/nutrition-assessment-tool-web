@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PG-SGA 营养照护评估台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="figma-app">
+      <header class="top-app-bar">
+        <div class="brand-lockup">
+          <span class="logo-tile">PG</span>
+          <div>
+            <p>PG-SGA OFFICIAL SCALE</p>
+            <h1>营养照护评估台</h1>
+          </div>
+        </div>
+        <div class="top-badges">
+          <span class="badge badge-blue">本地工具</span>
+          <span class="badge badge-red">填写后查看结果</span>
+        </div>
+        <div class="mobile-metrics" aria-label="移动端评估概览">
+          <article class="mobile-step-card">
+            <span>填写进度</span>
+            <strong id="mobileCompletion">0/4</strong>
+          </article>
+          <article class="mobile-ready-card">
+            <span>下一步</span>
+            <strong>查看状态</strong>
+          </article>
+        </div>
+      </header>
+
+      <section class="patient-strip">
+        <div class="patient-fields">
+          <span>今日评估对象</span>
+          <div class="patient-inputs">
+            <input id="personName" type="text" autocomplete="off" placeholder="匿名患者" />
+            <input id="assessmentDate" type="date" />
+          </div>
+        </div>
+        <article class="context-metric metric-mint">
+          <span>填写进度</span>
+          <strong id="desktopCompletion">0/4</strong>
+        </article>
+        <article class="context-metric metric-amber">
+          <span>症状选择</span>
+          <strong id="desktopSymptoms">0/5</strong>
+        </article>
+        <article class="context-metric metric-red">
+          <span>完成后</span>
+          <strong>查看建议</strong>
+        </article>
+      </section>
+
+      <section class="flow-heading">
+        <p>NUTRITION CHECK-IN</p>
+        <h2>先完成这份问卷</h2>
+        <span>只需要按真实情况选择选项。结果和建议会在完成后统一呈现，不会打断填写过程。</span>
+      </section>
+
+      <section class="assessment-stage" id="assessmentStage">
+        <form class="question-grid" id="questionnaire"></form>
+
+        <aside class="result-dock" aria-live="polite">
+          <section class="pre-submit-card" id="preSubmitCard">
+            <span>填写完成后查看</span>
+            <h3>你的营养状态会在这里生成</h3>
+            <p>为了让结果更准确，请先完成体重变化、饮食摄入、症状影响和活动能力四个部分。</p>
+            <button class="primary-action" type="button" id="viewResultBtn">查看我的营养状态</button>
+            <small id="completionHint">还差 4 项</small>
+          </section>
+
+          <section class="live-result-card">
+            <div class="dock-head">
+              <span>YOUR RESULT</span>
+              <strong id="riskBadge">低风险</strong>
+            </div>
+            <div class="score-ring" style="--progress: 0">
+              <span id="scoreValue">0</span>
+              <small>/17</small>
+            </div>
+            <p id="riskAdvice">目前无明显营养不良风险，请保持均衡饮食习惯。</p>
+            <div class="risk-scale" aria-label="风险分段">
+              <span class="scale-low">0-2</span>
+              <span class="scale-mid">3-8</span>
+              <span class="scale-high">≥9</span>
+            </div>
+            <div class="score-breakdown" id="scoreBreakdown"></div>
+          </section>
+
+          <section class="report-wrap">
+            <h3>报告摘要</h3>
+            <div class="report-card">
+              <p id="reportText">完成评估后，这里会整理本次选择和建议。</p>
+            </div>
+          </section>
+
+          <button class="primary-action result-action" type="button" id="saveBtn">保存这次评估</button>
+          <div class="secondary-actions">
+            <button type="button" id="editBtn">返回修改</button>
+            <button type="button" id="printBtn">打印</button>
+            <button type="button" id="exportBtn">导出</button>
+            <button type="button" id="resetBtn">重置</button>
+          </div>
+          <p class="history-text" id="historyText">本机记录 0 条</p>
+        </aside>
+      </section>
+    </main>
+
+    <template id="questionTemplate">
+      <section class="question-card">
+        <div class="question-head">
+          <span class="question-index"></span>
+          <div>
+            <h3></h3>
+            <p></p>
+          </div>
+          <strong class="symptom-count"></strong>
+        </div>
+        <div class="options"></div>
+      </section>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
