@@ -20,16 +20,6 @@
           <span class="badge badge-blue">本地工具</span>
           <span class="badge badge-red">填写后查看结果</span>
         </div>
-        <div class="mobile-metrics" aria-label="移动端评估概览">
-          <article class="mobile-step-card">
-            <span>填写进度</span>
-            <strong id="mobileCompletion">0/4</strong>
-          </article>
-          <article class="mobile-ready-card">
-            <span>下一步</span>
-            <strong>查看状态</strong>
-          </article>
-        </div>
       </header>
 
       <section class="patient-strip">
@@ -41,7 +31,7 @@
           </div>
         </div>
         <article class="context-metric metric-mint">
-          <span>填写进度</span>
+          <span>问卷进度</span>
           <strong id="desktopCompletion">0/4</strong>
         </article>
         <article class="context-metric metric-amber">
@@ -73,6 +63,17 @@
         </p>
       </section>
 
+      <div class="mobile-metrics" aria-label="移动端评估概览">
+        <article class="mobile-step-card">
+          <span>问卷进度</span>
+          <strong id="mobileCompletion">0/4</strong>
+        </article>
+        <article class="mobile-ready-card">
+          <span>下一步</span>
+          <strong>查看状态</strong>
+        </article>
+      </div>
+
       <section class="assessment-stage" id="assessmentStage">
         <form class="question-grid" id="questionnaire"></form>
 
@@ -101,13 +102,6 @@
               <span class="scale-high">≥9</span>
             </div>
             <div class="score-breakdown" id="scoreBreakdown"></div>
-          </section>
-
-          <section class="report-wrap">
-            <h3>报告摘要</h3>
-            <div class="report-card">
-              <p id="reportText">完成评估后，这里会整理本次选择和建议。</p>
-            </div>
           </section>
 
           <button class="primary-action result-action" type="button" id="saveBtn">保存这次评估</button>

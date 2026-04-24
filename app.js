@@ -80,7 +80,6 @@ const els = {
   advice: document.querySelector("#riskAdvice"),
   ring: document.querySelector(".score-ring"),
   breakdown: document.querySelector("#scoreBreakdown"),
-  reportText: document.querySelector("#reportText"),
   viewResult: document.querySelector("#viewResultBtn"),
   save: document.querySelector("#saveBtn"),
   edit: document.querySelector("#editBtn"),
@@ -288,7 +287,6 @@ function updateResult() {
   els.badge.textContent = result.risk.label;
   els.advice.textContent = result.risk.advice;
   els.ring.style.setProperty("--progress", Math.round((result.total / 17) * 100));
-  els.reportText.textContent = buildReport(result);
   els.historyText.textContent = `本机记录 ${history.length} 条 · 症状 ${symptomCount}/5`;
   els.completionHint.textContent = missing.length ? `还差：${missing.join("、")}` : "已完成，可以查看结果";
   els.viewResult.disabled = missing.length > 0;
